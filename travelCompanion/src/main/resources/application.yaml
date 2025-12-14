@@ -1,0 +1,35 @@
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  application:
+    name: travelCompanion
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/travelCompanion
+    username: "${MYSQL_USER:springuser}"
+    password: "${MYSQL_PASS}"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update     # use 'update' for dev; avoid create-drop in real dev/prod
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDBDialect
+  ai:
+    model:
+      chat: google-genai
+
+    google:
+      genai:
+        api-key: ${GOOGLE_API_KEY}
+        chat:
+          options:
+            model: gemini-2.5-flash-lite
+
+server:
+  port: 8080
+
+travelCompanion:
+  jwt:
+    secret: "${TRVLCOMP_JWT_SECRET}"
+    expiration-ms: 3600000

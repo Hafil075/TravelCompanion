@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-TravelCompanionApplication<travelCompanion>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "dev.hafil.travelCompanion.TravelCompanionApplication",
+            "projectName": "travelCompanion",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

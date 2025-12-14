@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "travelCompanion.jwt.secret",
+    "type": "java.lang.String",
+    "description": "A description for 'travelCompanion.jwt.secret'"
+  },
+  {
+    "name": "travelCompanion.jwt.expiration-ms",
+    "type": "java.lang.String",
+    "description": "A description for 'travelCompanion.jwt.expiration-ms'"
+  }
+]}
