@@ -52,7 +52,7 @@ public class AiSuggestionService {
             int duration) {
 
         return """
-                 Act as a strict, headless JSON API. You must not include any conversational text, explanations, markdown, or formatting. Output ONLY valid JSON.
+                Act as a strict, headless JSON API. You must not include any conversational text, explanations, markdown, or formatting. Output ONLY valid JSON.
 
                 INPUT DATA:
                 - Trip Name: %s
@@ -71,7 +71,12 @@ public class AiSuggestionService {
                 5. DEDUPLICATION: You must strictly filter out any suggestions that appear in the "Existing Places" or "Existing Items" lists.
                 6. FORMATTING: Return the result in raw JSON format as defined below.
 
-                JSON SCHEMA:
+                JSON SCHEMA:(Strictly follo this structure)
+                {
+                  "places": [STRING], // Array of suggested place names
+                  "items": [STRING]   // Array of suggested item names
+                }
+                EXAMPLE OUTPUT:
                 {
                   "places": [
                     "String",
@@ -94,8 +99,6 @@ public class AiSuggestionService {
     }
 
     private AiSuggestionResponse parseResponse(String aiResponse) {
-        System.out.println("RAW AI RESPONSE:");
-        System.out.println(aiResponse);
         try {
             return objectMapper.readValue(aiResponse, AiSuggestionResponse.class);
         } catch (Exception ex) {

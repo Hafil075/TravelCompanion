@@ -132,7 +132,7 @@ const Dashboard = () => {
                         <Input
                             value={newTrip.name}
                             onChange={(e) => setNewTrip({ ...newTrip, name: e.target.value })}
-                            placeholder="e.g. Summer in Paris"
+                            placeholder="e.g. Trip to Munnar"
                             required
                         />
                     </div>
@@ -141,7 +141,7 @@ const Dashboard = () => {
                         <Input
                             value={newTrip.destination}
                             onChange={(e) => setNewTrip({ ...newTrip, destination: e.target.value })}
-                            placeholder="e.g. Paris, France"
+                            placeholder="e.g. Munnar, Kerala"
                             required
                         />
                     </div>

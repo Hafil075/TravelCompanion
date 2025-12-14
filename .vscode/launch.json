@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TravelCompanionApplication",
+            "request": "launch",
+            "mainClass": "dev.hafil.travelCompanion.TravelCompanionApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-TravelCompanionApplication<travelCompanion>",
             "request": "launch",
             "cwd": "${workspaceFolder}",

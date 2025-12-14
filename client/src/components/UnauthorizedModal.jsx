@@ -49,12 +49,11 @@ const UnauthorizedModal = () => {
                                 Your session has invalid or expired credentials. Please log in again to continue using the application.
                             </p>
 
-                            <Button
-                                onClick={handleLogin}
+                            <Link to="/login" 
                                 className="w-full bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700"
                             >
                                 Log In Again
-                            </Button>
+                            </Link>
                         </div>
                     </motion.div>
                 </div>
