@@ -39,10 +39,10 @@ Users can create trips, manage packing lists and itineraries, and leverage gener
 ## 🛠️ Tech Stack
 
 **Frontend:** React (Vite), Tailwind CSS, Framer Motion  
-**Backend:** Spring Boot, Spring Security, JPA  
+**Backend:** Spring Boot (Java), Spring Security, JPA
 **Database:** MySQL  
 **Authentication:** JWT  
-**AI:** Generative AI (Spring-based integration)
+**AI:** Generative AI (Spring AI with Google Gemini)
 
 ---
 
@@ -50,39 +50,107 @@ Users can create trips, manage packing lists and itineraries, and leverage gener
 
 ```
 TravelCompanion/
-├── client/     # React frontend
-└── server/     # Spring Boot backend
+├── client/     # React frontend (Vite)
+└── server/     # Spring Boot backend (Maven)
 ```
 
 Frontend and backend are independently deployable.
 
 ---
 
+## 📋 Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+*   **Node.js** (v18 or higher recommended)
+*   **Java Development Kit (JDK)**: The project is configured for **Java 25**.
+    *   *Note:* If you do not have Java 25, you can try downgrading the version in `server/pom.xml` to Java 21 or 17, which should also be compatible with Spring Boot 3.4.
+*   **MySQL Server**: Ensure it is running and you have credentials to create a database.
+
+---
+
+## 🚀 Getting Started
+
+Follow these steps to set up and run the project locally.
+
+### 1. Clone the Repository
+
+```bash
+git clone <repository-url>
+cd TravelCompanion
+```
+
+### 2. Backend Setup (Server)
+
+1.  Navigate to the server directory:
+    ```bash
+    cd server
+    ```
+
+2.  Create a MySQL database named `travelCompanion`:
+    ```sql
+    CREATE DATABASE travelCompanion;
+    ```
+
+3.  Create a `.env` file in the `server/` directory and add your configuration:
+    ```env
+    MYSQL_USER=your_mysql_username
+    MYSQL_PASS=your_mysql_password
+    MYSQL_HOST=localhost
+    GOOGLE_API_KEY=your_google_gemini_api_key
+    FRONTEND_URL=http://localhost:5173
+    TRVLCOMP_JWT_SECRET=your_secure_jwt_secret_key
+    ```
+    *   Replace placeholders with your actual values.
+    *   `FRONTEND_URL` should match the URL where your client app runs (default Vite port is 5173).
+
+4.  Run the server:
+    ```bash
+    ./mvnw spring-boot:run
+    ```
+    The server will start on port **8080**.
+
+### 3. Frontend Setup (Client)
+
+1.  Open a new terminal and navigate to the client directory:
+    ```bash
+    cd client
+    ```
+
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+
+3.  (Optional) Create a `.env` file in the `client/` directory if you need to override the API URL:
+    ```env
+    VITE_API_URL=http://localhost:8080
+    ```
+    *   By default, it connects to `http://localhost:8080`.
+
+4.  Run the development server:
+    ```bash
+    npm run dev
+    ```
+    The frontend will start on **http://localhost:5173** (or the port shown in your terminal).
+
+---
+
+## 💡 Usage
+
+1.  Open your browser and go to `http://localhost:5173`.
+2.  Register a new account.
+3.  Log in and start creating trips!
+4.  Use the AI assistant to generate packing lists and places to visit.
+
+---
+
 ## 🚀 Deployment
 
-- **Frontend:** Netlify / Vercel
-- **Backend:** Ready for Railway, Render, EC2, or similar platforms
+- **Frontend:** Deploys easily to Netlify, Vercel, or any static site host.
+- **Backend:** Ready for Railway, Render, AWS EC2, or any platform supporting Java Spring Boot.
 
-Environment variables are managed via `.env` files (not committed).
-
----
-
-## 🎯 Why This Project?
-
-This project demonstrates:
-- Full-stack application architecture
-- Secure REST API development
-- Clean React state management
-- Real-world AI integration
-- Production-ready project organization
-
----
-
-## 📌 Future Enhancements
-- Day-wise AI itinerary planning
-- Weather-aware packing suggestions
-- Collaborative trips
-- Map and location integration
+Environment variables should be set in your deployment platform's dashboard.
 
 ---
 
