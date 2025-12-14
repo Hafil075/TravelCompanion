@@ -10,6 +10,7 @@ import org.springframework.security.web.*;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 
 @Configuration
 public class SecurityConfig {
@@ -47,10 +48,13 @@ public class SecurityConfig {
         return http.build();
     }
 
+    @Value("${travelCompanion.frontend.url:http://localhost:5173}")
+    private String frontendUrl;
+
     @Bean
     public org.springframework.web.cors.CorsConfigurationSource corsConfigurationSource() {
         var configuration = new CorsConfiguration();
-        configuration.setAllowedOriginPatterns(java.util.List.of("*"));
+        configuration.setAllowedOriginPatterns(java.util.List.of(frontendUrl));
         configuration.setAllowedMethods(java.util.List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(java.util.List.of("*"));
         configuration.setAllowCredentials(true);

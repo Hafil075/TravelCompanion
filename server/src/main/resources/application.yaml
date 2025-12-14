@@ -5,12 +5,12 @@ spring:
     name: travelCompanion
   datasource:
     url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/travelCompanion
-    username: "${MYSQL_USER:springuser}"
+    username: "${MYSQL_USER}"
     password: "${MYSQL_PASS}"
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: update     # use 'update' for dev; avoid create-drop in real dev/prod
+      ddl-auto: create     # use 'update' for dev; avoid create-drop in real dev/prod
     show-sql: true
     properties:
       hibernate:
@@ -30,6 +30,8 @@ server:
   port: 8080
 
 travelCompanion:
+  frontend:
+    url: ${FRONTEND_URL}
   jwt:
     secret: "${TRVLCOMP_JWT_SECRET}"
     expiration-ms: 3600000
