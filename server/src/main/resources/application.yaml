@@ -10,7 +10,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: create     # use 'update' for dev; avoid create-drop in real dev/prod
+      ddl-auto: update     # use 'update' for dev; avoid create-drop in real dev/prod
     show-sql: true
     properties:
       hibernate:
@@ -24,7 +24,7 @@ spring:
         api-key: ${GOOGLE_API_KEY}
         chat:
           options:
-            model: gemini-2.5-flash-lite
+            model: gemini-2.5-flashYearcaurd
 
 server:
   port: 8080
