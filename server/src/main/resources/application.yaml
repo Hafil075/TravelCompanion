@@ -24,7 +24,7 @@ spring:
         api-key: ${GOOGLE_API_KEY}
         chat:
           options:
-            model: gemini-2.5-flashYearcaurd
+            model: gemini-2.5-flash-lite
 
 server:
   port: 8080
