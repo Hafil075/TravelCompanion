@@ -1,4 +1,4 @@
-# 🌍 TravelCompanion — AI-Powered Trip Planner
+# 🌍 TravelCompanion : AI-Powered Trip Planner
 
 TravelCompanion is a full-stack web application that helps users plan trips intelligently by combining traditional trip management with AI-generated travel suggestions.
 
